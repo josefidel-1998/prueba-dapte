@@ -6,11 +6,11 @@
             </div>
             <nav class="text-start">
                 <ul class="space-y-8 ">
-                    <li class="text-2xl font-light flex items-center gap-x-2">
+                    <li class="xl:text-2xl text-xl font-light flex items-center gap-x-2">
                         <Icon name="material-symbols:shopping-bag" size="1.5rem" color="black"/>
                         <NuxtLink to="/products">Productos</NuxtLink>
                     </li>
-                    <li class="text-2xl font-light flex items-center gap-x-2">
+                    <li class="xl:text-2xl text-xl font-light flex items-center gap-x-2">
                         <Icon name="ic:round-supervisor-account" size="1.5rem" color="black"/>
                         <NuxtLink to="/users">Usuarios</NuxtLink>
                     </li>
@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-    const flagMenu = useState<boolean>(('flagMenu'), () => false)
+    const flagMenu = useState<boolean>(('flagMenu'), () => true)
 
     onMounted(() => {
         window.addEventListener('resize', () => {

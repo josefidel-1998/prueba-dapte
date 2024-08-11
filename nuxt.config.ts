@@ -6,6 +6,11 @@ export default defineNuxtConfig({
   typescript: {
     //typeCheck: true
   },
+  routeRules: {
+    '/': {
+      redirect: { to: '/login', statusCode: 302 }
+    }
+  },
   imports: {
     dirs: [
       // Scan top-level modules
