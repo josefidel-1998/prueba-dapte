@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="manu__burger" @click="flagMenu = !flagMenu">
-            <Icon name="teenyicons:align-text-justify-outline" size="1.5rem" />
+            <Icon name="teenyicons:align-text-justify-outline" size="2rem" />
         </div>
     </header>
 </template>
