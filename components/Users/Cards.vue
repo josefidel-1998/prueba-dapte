@@ -49,6 +49,7 @@
       if (!pageContainer.contains(event.target)) {
         
         flag.value = false;
+        
       }
     }
 

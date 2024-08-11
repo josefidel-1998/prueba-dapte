@@ -12,7 +12,7 @@
         <div class="w-full text-sm absolute bottom-2 left-2 text-start ">
             <h3 class="title-font text-xl font-medium">{{ productsData.name }}</h3>
         </div>
-        <div v-if="flagModal">
+        <div  v-if="flagModal">
             <ProductsModal @closeModal="seeMore" :productsData="productsData" />
         </div>
     </article>
@@ -26,6 +26,7 @@
     let flagModal = ref<boolean>(false)
 
     let articlePage = ref<any>(false)
+    let modalDiv = ref<any>(false);
 
     const {productsData} = defineProps<{
         productsData: Products
@@ -51,8 +52,11 @@
       if (!pageContainer.contains(event.target)) {
         
         flag.value = false;
+        
       }
     }
+
+
     onMounted(() => {
         window.addEventListener('keyup', e => {
             if(e.key == 'Escape'){
