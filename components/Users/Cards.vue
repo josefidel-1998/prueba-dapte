@@ -1,16 +1,16 @@
 <template>
-    <article class="w-full bg-blue-600 text-white relative">
+    <article class="w-full gradiente relative h-[200px] flex flex-col items-end">
         <div class="absolute right-2 top-2 ">
             <Icon @click="flag = !flag" class="cursor-pointer absolute right-2 top-2" name="ic:baseline-more-vert" size="1.2rem" color="white"></Icon>
             <template v-if="flag">
-                <div class="bg-gray-400 flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
+                <div class="bg-gray-400  text-white flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
                     <button @click="seeMore()" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 ">Ver más</button>
                     <button @click="deleteUsers(userData.id)" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 ">Eliminar</button>
                 </div>
             </template>
         </div>
-        <div class="w-1/2 mx-auto text-sm flex flex-col justify-center items-center gap-y-8  py-4">
-            <h3 class="title-font text-5xl font-light">{{ userData.title }}</h3>
+        <div class="w-full text-sm absolute bottom-2 left-2 text-start ">
+            <h3 class="title-font text-xl font-medium">{{ userData.title }}</h3>
         </div>
         <div v-if="flagModal">
             <UsersModal @closeModal="seeMore" :userData="userData" />
@@ -49,3 +49,10 @@
         })
     })
 </script>
+
+<style scoped>
+    .gradiente{
+        background: rgb(226,224,208);
+        background: linear-gradient(49deg, rgba(226,224,208,1) 33%, rgba(207,211,200,1) 75%);
+    }
+</style>

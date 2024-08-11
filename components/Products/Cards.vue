@@ -3,7 +3,7 @@
         <div class="absolute right-2 top-2">
             <Icon @click="flag = !flag" class="cursor-pointer absolute right-2 top-2" name="ic:baseline-more-vert" size="1.2rem" color="white"></Icon>
             <template v-if="flag">
-                <div class="bg-gray-400 flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
+                <div class="bg-gray-400 text-white flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
                     <button @click="seeMore()" class="text-md hover:bg-blue-800 ease-in duration-200 px-8">Ver más</button>
                     <button @click="deleteProducts(productsData.id)" class="text-md hover:bg-blue-800 ease-in duration-200 px-8">Eliminar</button>
                 </div>
@@ -54,6 +54,6 @@
 <style scoped>
     .gradiente{
         background: rgb(226,224,208);
-background: linear-gradient(49deg, rgba(226,224,208,1) 33%, rgba(207,211,200,1) 75%);
+        background: linear-gradient(49deg, rgba(226,224,208,1) 33%, rgba(207,211,200,1) 75%);
     }
 </style>

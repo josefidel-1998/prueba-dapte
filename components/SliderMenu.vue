@@ -1,5 +1,5 @@
 <template>
-    <aside class="slider__menu" v-if="flag">
+    <aside class="slider__menu" v-if="flagMenu">
         <div class="div__menu">
             <div class="mb-8">
                 <img class="w-10/12 mx-auto" src="/logo_dapte.svg" alt="logo" />
@@ -16,7 +16,7 @@
                     </li>
                 </ul>
             </nav>
-            <div class="close__icon" @click="flag = !flag">
+            <div class="close__icon" @click="flagMenu = !flagMenu">
                 <Icon name="material-symbols:close-rounded" size="3rem" color="white" />
             </div>
             <div class="md:mt-auto mt-10 pb-20 text-xl text-center">
@@ -28,12 +28,17 @@
 </template>
 
 <script setup lang="ts">
-    const flag = ref<boolean>(true);
+    const flagMenu = useState<boolean>(('flagMenu'), () => false)
 
     onMounted(() => {
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) {
-                flag.value = true;
+
+            if (window.innerWidth <= 768) {
+                flagMenu.value = false;
+            }
+
+            if (window.innerWidth >= 768) {
+                flagMenu.value = true;
             }
         });
     })

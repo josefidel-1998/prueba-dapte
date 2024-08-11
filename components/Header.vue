@@ -1,44 +1,46 @@
 <template>
     <header class="header">
-        <search v-if="fullPath.path == '/users'">
-            <input 
-            class="bg-white border-white border-3 rounded-xl focus:border-blue-200 min-w-80 text-black"
-            type="search" 
-            placeholder="Usuarios" 
-            @input="filterUsers(filterInput)"
-            v-model="filterInput"
-             />
-        </search>
+        <div class="md:w-full w-1/2 mx-auto flex justify-around md:flex-row flex-col gap-y-4 items-center">
+            <search v-if="fullPath.path == '/users'">
+                <input 
+                class="md:min-w-20 min-w-10 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
+                type="search" 
+                placeholder="Usuarios" 
+                @input="filterUsers(filterInput)"
+                v-model="filterInput"
+                />
+            </search>
 
-        <search v-else-if="fullPath.path == '/products'">
-            <input 
-            class="bg-white border-white border-3 rounded-xl focus:border-blue-200 min-w-80 text-black"
-            type="search" 
-            placeholder="Productos" 
-            @input="filterProducts(filterInput)"
-            v-model="filterInput"
-             />
-        </search>
-
-        <div class="text-center">
-            <div @click="flag = !flag" class="flex flex-col justify-center items-center cursor-pointer relative">
-                <Icon name="material-symbols:account-circle" size="2rem" color="white" />
-                <p class="flex ">
-                    {{ user.name }} <span><Icon name="material-symbols:arrow-drop-down" size="1.5rem" color="white"/></span>
-                </p>
+            <search v-else-if="fullPath.path == '/products'">
+                <input 
+                class="md:min-w-20 min-w-10 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
+                type="search" 
+                placeholder="Productos" 
+                @input="filterProducts(filterInput)"
+                v-model="filterInput"
+                />
+            </search>
+            <div class="text-center ">
+                <div @click="flag = !flag" class="flex flex-col justify-center items-center cursor-pointer relative">
+                    <Icon name="material-symbols:account-circle" size="2rem" color="white" />
+                    <p class="flex ">
+                        {{ user.name }} <span><Icon name="material-symbols:arrow-drop-down" size="1.5rem" color="white"/></span>
+                    </p>
+                </div>
+                <div class="btn__seccion__count" v-if="flag">
+                    <button class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Mi cuenta</button>
+                    <button @click="logout" class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Cerrar Sesión</button>
+                </div>
             </div>
-            <div class="bg-white p-2 flex flex-col justify-stretch gap-y-1  absolute 2xl:right-[17%] xl:right-[12%] md:right-[10%] right-[0%] top-[7.5%]" v-if="flag">
-                <button class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Mi cuenta</button>
-                <button @click="logout" class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Cerrar Sesión</button>
-            </div>
+        </div>
+        <div class="manu__burger" @click="flagMenu = !flagMenu">
+            <Icon name="teenyicons:align-text-justify-outline" size="1.5rem" />
         </div>
     </header>
 </template>
 
 <script setup lang="ts">
     import type {Data} from '~/types/login';
-    import type {Products} from '~/types/products';
-    import type {Users} from '~/types/users';
 
     import useUsers from '~/composables/useUsers';
     import useProducts from '~/composables/useProducts';
@@ -48,7 +50,7 @@
     const {filterProducts} = useProducts();
     const {filterUsers} = useUsers();
 
-
+    const flagMenu = useState<boolean>(('flagMenu'), () => false)
 
     const filterInput = ref<string>("");
 
@@ -58,3 +60,15 @@
     const user = useCookie<Data>('data_user');
 
 </script>
+
+<style scoped>
+    .manu__burger{
+        display: none
+    }
+    @media screen and (width < 768px){
+        .manu__burger{
+            display: block;
+        }
+    }
+</style>
+
