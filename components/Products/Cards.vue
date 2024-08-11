@@ -1,11 +1,11 @@
 <template>
-    <article class="w-full gradiente relative h-[200px] flex flex-col items-end">
+    <article ref='articlePage' class="w-full gradiente relative h-[200px] flex flex-col items-end">
         <div class="absolute right-2 top-2">
             <Icon @click="flag = !flag" class="cursor-pointer absolute right-2 top-2" name="ic:baseline-more-vert" size="1.2rem" color="white"></Icon>
             <template v-if="flag">
                 <div class="bg-gray-400 text-white flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
-                    <button @click="seeMore()" class="text-md hover:bg-blue-800 ease-in duration-200 px-8">Ver más</button>
-                    <button @click="deleteProducts(productsData.id)" class="text-md hover:bg-blue-800 ease-in duration-200 px-8">Eliminar</button>
+                    <button @click="seeMore()" class="text-md hover:bg-[#aac8cd] hover:text-gray-700 ease-in duration-200 px-8">Ver más</button>
+                    <button @click="deleteProducts(productsData.id)" class="text-md hover:bg-[#aac8cd] hover:text-gray-700 ease-in duration-200 px-8">Eliminar</button>
                 </div>
             </template>
         </div>
@@ -25,6 +25,8 @@
     let flag = ref<boolean>(false);
     let flagModal = ref<boolean>(false)
 
+    let articlePage = ref<any>(false)
+
     const {productsData} = defineProps<{
         productsData: Products
     }>()
@@ -42,12 +44,23 @@
         flag.value = false;
         flagModal.value = !flagModal.value;
     }
+
+    const handleClickOutside = (event: any) => {
+      const pageContainer = articlePage.value;
+
+      if (!pageContainer.contains(event.target)) {
+        
+        flag.value = false;
+      }
+    }
     onMounted(() => {
         window.addEventListener('keyup', e => {
             if(e.key == 'Escape'){
                 flagModal.value = false
             }
-        })
+        });
+        
+        document.addEventListener('click', handleClickOutside)
     })
 </script>
 

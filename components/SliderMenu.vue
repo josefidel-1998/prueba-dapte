@@ -49,8 +49,8 @@
 
 
     .div__menu{
-        background: rgb(159,175,176);
-background: linear-gradient(0deg, rgba(159,175,176,1) 0%, rgba(151,158,158,1) 27%, rgba(203,200,200,1) 52%, rgba(228,221,211,1) 75%, rgba(177,169,151,1) 100%);
+        background: rgb(151,158,158);
+        background: linear-gradient(315deg, rgba(151,158,158,1) 7%, rgba(203,200,200,1) 52%, rgba(228,221,211,1) 94%);
     }
     .close__icon{
         display: none
