@@ -10,7 +10,7 @@
                         <Icon name="material-symbols:shopping-bag" size="1.5rem" color="black"/>
                         <NuxtLink to="/products">Productos</NuxtLink>
                     </li>
-                    <li class="xl:text-2xl text-xl font-light flex items-center gap-x-2">
+                    <li class="lg:text-2xl text-xl font-light flex items-center gap-x-2">
                         <Icon name="ic:round-supervisor-account" size="1.5rem" color="black"/>
                         <NuxtLink to="/users">Usuarios</NuxtLink>
                     </li>
@@ -19,7 +19,7 @@
             <div class="close__icon" @click="flagMenu = !flagMenu">
                 <Icon name="material-symbols:close-rounded" size="3rem" color="white" />
             </div>
-            <div class="md:mt-auto mt-10 pb-20 text-xl text-center">
+            <div class="md:mt-auto mt-10 pb-20 lg:text-xl text-base text-center">
                 @copyright 2024 Daptee
             </div>
         </div>
