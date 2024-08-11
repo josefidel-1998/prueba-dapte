@@ -1,9 +1,13 @@
 <template>
     <header class="header">
-        <div class="md:w-full w-1/2 mx-auto flex justify-around md:flex-row flex-col gap-y-4 items-center">
+        <div class="manu__burger fixed left-4 top-9" @click="flagMenu = !flagMenu">
+                <Icon name="teenyicons:align-text-justify-outline" size="1.5rem" />
+            </div>
+        <div class="md:w-full  ms-auto flex justify-end relative flex-row sm:gap-x-16 gap-x-8 items-center">
+
             <search v-if="fullPath.path == '/users'">
                 <input 
-                class="md:min-w-20 min-w-10 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
+                class="md:min-w-20 sm:min-w-10 min-w-2 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
                 type="search" 
                 placeholder="Usuarios" 
                 @input="filterUsers(filterInput)"
@@ -13,14 +17,14 @@
 
             <search v-else-if="fullPath.path == '/products'">
                 <input 
-                class="md:min-w-20 min-w-10 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
+                class="md:min-w-20 sm:min-w-10 min-w-2 bg-white border-white border-3 rounded-xl focus:border-blue-200 text-black"
                 type="search" 
                 placeholder="Productos" 
                 @input="filterProducts(filterInput)"
                 v-model="filterInput"
                 />
             </search>
-            <div class="text-center ">
+            <div class="text-center">
                 <div @click="flag = !flag" class="flex flex-col justify-center items-center cursor-pointer relative">
                     <Icon name="material-symbols:account-circle" size="2rem" color="white" />
                     <p class="flex ">
@@ -28,13 +32,10 @@
                     </p>
                 </div>
                 <div class="btn__seccion__count" v-if="flag">
-                    <button class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Mi cuenta</button>
-                    <button @click="logout" class="text-md hover:text-blue-400 ease-in duration-200 px-8  text-blue-600">Cerrar Sesión</button>
+                    <button class="text-md hover:text-blue-400 ease-in duration-200 px-8 ">Mi cuenta</button>
+                    <button @click="logout" class="text-md hover:text-blue-400 ease-in duration-200 px-8 ">Cerrar Sesión</button>
                 </div>
             </div>
-        </div>
-        <div class="manu__burger" @click="flagMenu = !flagMenu">
-            <Icon name="teenyicons:align-text-justify-outline" size="2rem" />
         </div>
     </header>
 </template>

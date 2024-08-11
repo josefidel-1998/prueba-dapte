@@ -17,11 +17,11 @@
         @apply text-[#765CF3] border-2 border-[#765CF3] py-1 px-4 focus:outline-none hover:bg-indigo-600 hover:text-white ease-in duration-300  text-lg
     }
     .slider__menu{
-        @apply flex flex-col  z-10 gap-y-8 min-h-screen items-center justify-start relative;
+        @apply flex flex-col z-10 gap-y-8 min-h-screen items-center justify-start relative;
     }
     .div__menu{
-        @apply md:bg-gray-200 bg-black md:text-black text-white md:w-1/6 w-full md:min-h-screen min-h-[110vh] pt-20 md:pl-0 pl-10 ;
-        @apply flex flex-col justify-center md:items-center items-start fixed left-0 z-10
+        @apply   text-black md:w-1/6 w-full md:min-h-screen min-h-[110vh] pt-20 md:pl-0 pl-10 ;
+        @apply flex flex-col justify-around md:items-center items-start fixed left-0 z-10
     }
     .header{
         @apply w-full bg-[#9fafb0] text-white py-4 flex flex-row md:justify-end justify-between md:pr-10 md:px-0 px-10 sm:items-center items-start;
@@ -36,7 +36,7 @@
         @apply w-11/12 mx-auto grid xl:grid-cols-5 lg:grid-cols-2 grid-cols-1 gap-4;
     }
     .btn__seccion__count{
-        @apply bg-white p-2 flex flex-col justify-stretch gap-y-1  absolute 2xl:right-[17%] xl:right-[12%] md:right-[20%] right-[35%] md:top-[8%] top-[15%];
+        @apply bg-[#9fafb0] p-2 flex flex-col justify-stretch gap-y-1 text-white absolute right-[0%]  md:-bottom-[100%];
         
     }
 }
