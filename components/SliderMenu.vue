@@ -41,6 +41,9 @@
                 flagMenu.value = true;
             }
         });
+    });
+    onBeforeMount(() => {
+        flagMenu.value = false;
     })
 </script>
 

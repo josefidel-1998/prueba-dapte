@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <div class="manu__burger fixed left-4 top-9" @click="flagMenu = !flagMenu">
+        <div class="manu__burger fixed left-2 top-9" @click="flagMenu = !flagMenu">
                 <Icon name="teenyicons:align-text-justify-outline" size="1.5rem" />
             </div>
         <div class="md:w-full  ms-auto flex justify-end relative flex-row sm:gap-x-16 gap-x-8 items-center">
