@@ -1,26 +1,55 @@
 <template>
-    <aside class="slider__menu">
-        <div class="mb-8">
-            <img class="w-10/12 mx-auto" src="/logo_dapte.svg" alt="logo" />
+    <aside class="slider__menu" v-if="flag">
+        <div class="div__menu">
+            <div class="mb-8">
+                <img class="w-10/12 mx-auto" src="/logo_dapte.svg" alt="logo" />
+            </div>
+            <nav class="text-start">
+                <ul class="space-y-8 ">
+                    <li class="text-2xl font-light flex items-center gap-x-2">
+                        <Icon name="material-symbols:shopping-bag" size="1.5rem" color="black"/>
+                        <NuxtLink to="/products">Productos</NuxtLink>
+                    </li>
+                    <li class="text-2xl font-light flex items-center gap-x-2">
+                        <Icon name="ic:round-supervisor-account" size="1.5rem" color="black"/>
+                        <NuxtLink to="/users">Usuarios</NuxtLink>
+                    </li>
+                </ul>
+            </nav>
+            <div class="close__icon" @click="flag = !flag">
+                <Icon name="material-symbols:close-rounded" size="3rem" color="white" />
+            </div>
+            <div class="md:mt-auto mt-10 pb-20 text-xl text-center">
+                @copyright 2024 Daptee
+            </div>
         </div>
-        <nav class="text-center">
-            <ul class="space-y-8">
-                <li class="lg:text-2xl text-md font-bold flex items-center gap-x-2">
-                    <Icon name="material-symbols:shopping-bag" size="2rem" color="white"/>
-                    <NuxtLink to="/products">Productos</NuxtLink>
-                </li>
-                <li class="lg:text-2xl text-md font-bold flex items-center gap-x-2">
-                    <Icon name="ic:round-supervisor-account" size="2rem" color="white"/>
-                    <NuxtLink to="/users">Usuarios</NuxtLink>
-                </li>
-            </ul>
-        </nav>
-        <div class="mt-auto py-20 lg:text-xl text-sm">
-            @copyright 2024 Daptee
-        </div>
+
     </aside>
 </template>
 
 <script setup lang="ts">
+    const flag = ref<boolean>(true);
 
+    onMounted(() => {
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                flag.value = true;
+            }
+        });
+    })
 </script>
+
+
+<style scoped>
+    .close__icon{
+        display: none
+    }
+    @media screen and (width < 768px){
+        .close__icon{
+            display: block;
+            position: absolute;
+            top: 20px;
+            right:5%;
+        }
+    }
+</style>

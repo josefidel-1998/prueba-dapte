@@ -10,25 +10,29 @@
         @apply
     }
     .input__login{
-        @apply w-full bg-white rounded border text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out;
-        @apply border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none 
+        @apply w-full bg-white  border text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out;
+        @apply border-b-[#3BCDBD] border-white focus:border-b-indigo-500 text-base outline-none 
     }
     .btn__submit{
-        @apply text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg
+        @apply text-[#765CF3] border-2 border-[#765CF3] py-1 px-4 focus:outline-none hover:bg-indigo-600 hover:text-white ease-in duration-300  text-lg
     }
     .slider__menu{
-        @apply bg-blue-800  py-8 text-white flex flex-col w-1/6 z-10 gap-y-8 min-h-screen fixed left-0 top-0 items-center justify-start ;
+        @apply flex flex-col  z-10 gap-y-8 min-h-screen items-center justify-start relative;
+    }
+    .div__menu{
+        @apply md:bg-gray-200 bg-black md:text-black text-white md:w-1/6 w-full md:min-h-screen min-h-[110vh] pt-20 md:pl-0 pl-10 ;
+        @apply flex flex-col justify-center md:items-center items-start fixed left-0 z-10
     }
     .header{
-        @apply w-full bg-blue-800 text-white lg:pl-[10%] pl-[20%] py-4 flex flex-row justify-around items-center gap-x-16;
+        @apply w-full bg-[#9fafb0] text-white py-4 flex flex-row justify-end pr-10 gap-10  items-center  ;
     }
     .main__section{
-        @apply ms-[16.6%] text-center mt-8
+        @apply  text-center mt-8 ;
     }
     .h1{
-        @apply text-5xl font-bold mb-8
+        @apply text-7xl font-light mb-8 text-start mx-14 border-b-2 border-black pb-6
     }
     .content__cards{
-        @apply w-11/12 mx-auto grid xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 gap-4;
+        @apply w-11/12 mx-auto grid xl:grid-cols-5 lg:grid-cols-2 grid-cols-1 gap-4;
     }
 }

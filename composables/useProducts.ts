@@ -1,7 +1,7 @@
 import type {Products} from '~/types/products'
 export default(() => {
     const products = useState<Products[]>('products', () => []);
-
+    const registerProducts = useState<Products[]>('registerProducts', () => [])
 
     const getProducts = async ():Promise<void> => {
         const data = await fetch('https://api.citybik.es/v2/networks');
@@ -12,13 +12,10 @@ export default(() => {
     }
 
     const filterProducts = (filter: string):void => {
+        console.log(filter)
         let filtro = products.value.filter((f:Products) => f.name.toLowerCase().startsWith(filter.toLowerCase()));
         console.log(filtro)
-        products.value = filtro;
-
-        if(filter === ''){
-            getProducts();   
-        }
+        registerProducts.value = filtro;
     }
 
     return {

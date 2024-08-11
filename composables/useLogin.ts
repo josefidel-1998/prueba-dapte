@@ -16,7 +16,7 @@ export default ((dataLogin:Data) => {
             });
             if(status.value == 'success'){
                 userCockie.value = data.value;
-                navigateTo('/productos')
+                navigateTo('/products')
             }
         }
     }

@@ -5,8 +5,11 @@
             <Loader />
         </template> 
         <template v-else>
-            <div class="content__cards">
+            <div class="content__cards" v-if="registerUsers.length == 0">
                 <UsersCards v-for="user in users" :userData="user" :key="user.id" @deleteUser="deleteUsers"/>
+            </div>
+            <div class="content__cards" v-else>
+                <UsersCards v-for="user in registerUsers" :userData="user" :key="user.id" @deleteUser="deleteUsers"/>
             </div>
         </template>
     </section>
@@ -18,6 +21,7 @@
     const {getUsers} = useUsers();
 
     const users = useState<Users[]>('users');
+    const registerUsers = useState<Users[]>('registerUsers', () => []);
 
     const deleteUsers = (id: number):void => {
         const index = users.value.findIndex((user:Users) => user.id == id);

@@ -5,8 +5,11 @@
             <Loader />
         </template> 
         <template v-else>
-            <div class="content__cards">
+            <div class="content__cards" v-if="registerProducts.length == 0">
                 <ProductsCards v-for="product in products" :productsData="product" :key="product.id" @deleteProducts="deleteProducts"/>
+            </div>
+            <div class="content__cards" v-else>
+                <ProductsCards v-for="product in registerProducts" :productsData="product" :key="product.id" @deleteProducts="deleteProducts"/>
             </div>
         </template>
     </section>
@@ -18,6 +21,7 @@
     const {getProducts} = useProducts();
 
     const products = useState<Products[]>('products');
+    const registerProducts = useState<Products[]>('registerProducts')
 
     const deleteProducts = (id: string):void => {
         const index = products.value.findIndex((product:Products) => product.id == id);

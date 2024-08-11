@@ -1,16 +1,16 @@
 <template>
-    <article class="w-full bg-blue-600 text-white rounded-xl relative">
+    <article class="w-full bg-blue-600 text-white relative">
         <div class="absolute right-2 top-2 ">
             <Icon @click="flag = !flag" class="cursor-pointer absolute right-2 top-2" name="ic:baseline-more-vert" size="1.2rem" color="white"></Icon>
             <template v-if="flag">
-                <div class="bg-gray-400 flex flex-col justify-stretch gap-y-1 rounded-xl absolute right-4 top-6">
-                    <button @click="seeMore()" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 rounded-t-xl">Ver más</button>
-                    <button @click="deleteUsers(userData.id)" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 rounded-b-xl">Eliminar</button>
+                <div class="bg-gray-400 flex flex-col justify-stretch gap-y-1 absolute right-4 top-6">
+                    <button @click="seeMore()" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 ">Ver más</button>
+                    <button @click="deleteUsers(userData.id)" class="text-md hover:bg-blue-800 ease-in duration-200 px-8 ">Eliminar</button>
                 </div>
             </template>
         </div>
         <div class="w-1/2 mx-auto text-sm flex flex-col justify-center items-center gap-y-8  py-4">
-            <h3 class="title-font text-xl font-medium">{{ userData.title }}</h3>
+            <h3 class="title-font text-5xl font-light">{{ userData.title }}</h3>
         </div>
         <div v-if="flagModal">
             <UsersModal @closeModal="seeMore" :userData="userData" />
