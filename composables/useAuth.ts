@@ -6,7 +6,7 @@ export default(() => {
     }
     const logout = ():void => {
         userCockie.value = null;
-        navigateTo('/login');
+        navigateTo('/');
       }
     return {
         isAuthenticated,
