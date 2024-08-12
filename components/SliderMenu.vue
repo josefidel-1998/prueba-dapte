@@ -42,9 +42,7 @@
             }
         });
     });
-    onBeforeMount(() => {
-        flagMenu.value = false;
-    })
+
 </script>
 
 
